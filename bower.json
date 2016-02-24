@@ -1,0 +1,23 @@
+{
+  "name": "Codenames",
+  "authors": [
+    "Wheerd <admin@wheerd.de>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "less": "^2.6.0",
+    "lodash": "^4.5.1"
+  }
+}

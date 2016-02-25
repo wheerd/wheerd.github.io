@@ -63,3 +63,40 @@ button {
   float: right;
   margin: 5px;
 }
+
+button.text {
+  height: 30px;
+  font-size: 22px;
+  padding: 0 5px;
+  border: 1px solid #000;
+  line-height: 28px;
+  vertical-align: middle;
+  border-radius: 3px;
+}
+
+.lang {
+  height: 30px;
+  width: 40px;
+  padding: 0;
+  background-position: 50% center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #000;
+  filter: grayscale(80%);
+}
+
+.lang:disabled {  
+  filter: none;
+}
+
+.lang:hover {
+  filter: none;
+}
+
+.lang.de {
+  background-image: url('img/de.svg')
+}
+
+.lang.en {
+  background-image: url('img/en.svg')
+}

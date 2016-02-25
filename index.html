@@ -7,9 +7,11 @@
         <link rel="stylesheet/less" type="text/css" href="style.less" />
       </head>
       <body>
-        <h1>Codenames</h1>
-        <button onclick="resetState()">Reset</button>
-        <button onclick="generateWords()">Generate</button>
+        <h1><a href="http://codenamesgame.com/">Codenames</a></h1>
+        <button class="lang de" onclick="loadWords('de')"></button>
+        <button class="lang en" onclick="loadWords('en')"></button>
+        <button class="text" onclick="resetState()">Reset</button>
+        <button class="text" onclick="generateWords()">Generate</button>
         <div id="cardContainer"></div>
         <script src="bower_components/less/dist/less.min.js"></script>
         <script src="http://code.jquery.com/jquery.js"></script>

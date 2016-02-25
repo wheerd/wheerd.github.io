@@ -1,9 +1,18 @@
 (function ($, _, localStorage) {
+  if (!localStorage.lang) localStorage.lang = 'en'
+  refreshLanguageStates()
+
+  function refreshLanguageStates () {
+    var langs = document.getElementsByClassName('lang')
+    for (var i = 0; i < langs.length; i++) {
+      var lang = langs.item(i)
+
+      lang.disabled = lang.classList.contains(localStorage.lang)
+    }
+  }
+
   if (localStorage && !localStorage.words) {
-    $.getJSON('en.json', function (words) {
-      localStorage.words = JSON.stringify(words)
-      generateWords()
-    })
+    loadWords('en')
   } else if (localStorage && !localStorage.currentWords) {
     generateWords()
   } else if (localStorage && localStorage.currentWords) {
@@ -15,6 +24,15 @@
     localStorage.currentWords = JSON.stringify(currentWords)
 
     refreshWords()
+  }
+
+  function loadWords (lang) {
+    localStorage.lang = lang
+    refreshLanguageStates()
+    $.getJSON('data/' + lang + '.json', function (words) {
+      localStorage.words = JSON.stringify(words)
+      generateWords()
+    })
   }
 
   function refreshWords () {
@@ -62,11 +80,10 @@
     state[i] = (state[i] + 1) % 5
     localStorage.state = JSON.stringify(state)
 
-    console.log(state)
-
     refreshStates()
   }
 
+  window.loadWords = loadWords
   window.generateWords = generateWords
   window.resetState = resetState
 })(window.$, window._, window.localStorage)

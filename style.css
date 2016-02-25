@@ -7,9 +7,8 @@
 }
 
 .card div {
-  border: 1px solid #000000;
-  border-radius: 10px;
-  background: #FFDDAA;
+  border: 5px solid #000000;
+  border-radius: 20px;
   margin: 0 auto;
   position: absolute;
   top: 5%;
@@ -20,7 +19,38 @@
   vertical-align: middle;
   line-height: 17vh;
   font-size: 250%;
+  box-shadow: inset 0px 0px 10px black;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+}
+
+.card.state-0 div {
+  background: #FFDDAA;
   font-weight: bold;
+  color: #000;
+}
+
+.card.state-1 div {
+  background: #00A;
+  color: #AAF;
+}
+
+.card.state-2 div {
+  background: #A00;
+  color: #FAA;  
+}
+
+.card.state-3 div {
+  background: #AAA; 
+  color: #666;
+}
+
+.card.state-4 div {
+  background: #333;
+  color: #AAA;
 }
 
 h1 {

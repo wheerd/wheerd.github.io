@@ -39,7 +39,7 @@
     var currentWords = JSON.parse(localStorage.currentWords)
     var container = document.getElementById('cardContainer')
     container.innerHTML = ''
-    for (var i = 0; i < 25; i++) {
+    for (var i = 0; i < 20; i++) {
       var div = document.createElement('div')
       div.className = 'card card-' + i
       var div2 = document.createElement('div')
@@ -57,13 +57,13 @@
     var state = JSON.parse(localStorage.state)
     var container = document.getElementById('cardContainer')
     var cards = container.childNodes
-    for (var i = 0; i < 25; i++) {
+    for (var i = 0; i < 20; i++) {
       cards[i].className = 'card card-' + i + ' state-' + state[i]
     }
   }
 
   function resetState () {
-    var state = _.times(25, _.constant(0))
+    var state = _.times(20, _.constant(0))
     localStorage.state = JSON.stringify(state)
 
     refreshStates()

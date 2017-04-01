@@ -1,5 +1,6 @@
 (function ($, _, localStorage) {
   if (!localStorage.lang) localStorage.lang = 'en'
+  if (!localStorage.size) localStorage.size = 25
   refreshLanguageStates()
 
   function refreshLanguageStates () {
@@ -20,10 +21,10 @@
   }
 
   function generateWords () {
-    var currentWords = _.sampleSize(JSON.parse(localStorage.words), 25)
+    var currentWords = _.sampleSize(JSON.parse(localStorage.words), localStorage.size)
     localStorage.currentWords = JSON.stringify(currentWords)
-
     refreshWords()
+    resetState()
   }
 
   function loadWords (lang) {
@@ -39,7 +40,7 @@
     var currentWords = JSON.parse(localStorage.currentWords)
     var container = document.getElementById('cardContainer')
     container.innerHTML = ''
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < localStorage.size; i++) {
       var div = document.createElement('div')
       div.className = 'card card-' + i
       var div2 = document.createElement('div')
@@ -50,20 +51,21 @@
       div2.onclick = stateToggler(i)
     }
 
-    resetState()
+    refreshStates()
   }
 
   function refreshStates () {
+    if (!localStorage.state) return
     var state = JSON.parse(localStorage.state)
     var container = document.getElementById('cardContainer')
     var cards = container.childNodes
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < localStorage.size; i++) {
       cards[i].className = 'card card-' + i + ' state-' + state[i]
     }
   }
 
   function resetState () {
-    var state = _.times(20, _.constant(0))
+    var state = _.times(localStorage.size, _.constant(0))
     localStorage.state = JSON.stringify(state)
 
     refreshStates()
@@ -83,7 +85,23 @@
     refreshStates()
   }
 
+  function switchMode (btn) {
+    var mode = localStorage.size
+    localStorage.size = mode == 25? 20 : 25
+    refreshModeButton()
+
+    generateWords()
+  }
+
+  function refreshModeButton() {
+    var mode = localStorage.size
+    document.getElementById('modeButton').innerHTML = mode == 25? "5x4" : "5x5"
+  }
+
   window.loadWords = loadWords
   window.generateWords = generateWords
   window.resetState = resetState
+  window.switchMode = switchMode
+
+  refreshModeButton()
 })(window.$, window._, window.localStorage)

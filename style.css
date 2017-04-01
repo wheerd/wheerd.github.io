@@ -1,14 +1,14 @@
 #cardContainer {
   position: fixed;
-  top: 50px;
+  top: 10vh;
   left: 0;
   bottom: 0;
   right: 0;
 }
 
 .card div {
-  border: 5px solid #000000;
-  border-radius: 20px;
+  border: 0.1em solid #000000;
+  border-radius: 0.3em;
   margin: 0 auto;
   position: absolute;
   top: 5%;
@@ -18,8 +18,8 @@
   text-align: center;
   vertical-align: middle;
   line-height: 17vh;
-  font-size: 250%;
-  box-shadow: inset 0px 0px 10px black;
+  font-size: 2vw;
+  box-shadow: inset 0px 0px 0.1em black;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -40,11 +40,11 @@
 
 .card.state-2 div {
   background: #A00;
-  color: #FAA;  
+  color: #FAA;
 }
 
 .card.state-3 div {
-  background: #AAA; 
+  background: #AAA;
   color: #666;
 }
 
@@ -55,28 +55,29 @@
 
 h1 {
   float: left;
-  margin: 5px;
-  height: 40px;
+  margin: 0.5vh;
+  height: 9vh;
 }
 
 button {
   float: right;
-  margin: 5px;
+  margin: .2em;
 }
 
 button.text {
-  height: 30px;
-  font-size: 22px;
-  padding: 0 5px;
+  height: 9vh;
+  font-size: 3vh;
+  padding: 0 0.5em;
   border: 1px solid #000;
-  line-height: 28px;
+  line-height: 7vh;
   vertical-align: middle;
-  border-radius: 3px;
+  border-radius: 0.3em;
+  min-width: 8vw;
 }
 
 .lang {
-  height: 30px;
-  width: 40px;
+  height: 9vh;
+  width: 12vh;
   padding: 0;
   background-position: 50% center;
   background-repeat: no-repeat;
@@ -85,7 +86,7 @@ button.text {
   filter: grayscale(80%);
 }
 
-.lang:disabled {  
+.lang:disabled {
   filter: none;
 }
 

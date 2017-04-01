@@ -6,10 +6,10 @@
       @row: floor(@i / 5.0);
       left: @col * 20%;
       right: (4 - @col) * 20%;
-      top: @row * 20%;
-      bottom: (4 - @row) * 20%;
+      top: @row * 18vh;
+      height: 18vh;
       position: absolute;
   }
-  
+
   .generate-cards(@n, (@i + 1));
 }
